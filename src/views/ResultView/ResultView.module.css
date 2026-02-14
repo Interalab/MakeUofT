@@ -1,0 +1,70 @@
+.resultContainer {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+/* 模糊的背景层 */
+.blurBackground {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    filter: blur(20px) brightness(0.6);
+    z-index: 1;
+    transform: scale(1.1); /* 防止模糊边缘露白 */
+}
+
+/* 颜色叠加层，实现“滤镜”效果 */
+.colorOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--theme-color); /* 使用 JS 传入的变量 */
+    opacity: 0.3; /* 半透明叠加 */
+    mix-blend-mode: overlay; /* 混合模式，让颜色融合更好看 */
+    z-index: 2;
+}
+
+.content {
+    position: relative;
+    z-index: 3;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ... 其他卡片和按钮样式略 ... */
+.flowerImage {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--theme-color);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+.restartButton {
+    position: relative;
+    z-index: 3;
+    padding: 15px;
+    background: rgba(255,255,255,0.2);
+    border: none;
+    color: white;
+    border-radius: 30px;
+    backdrop-filter: blur(5px);
+    cursor: pointer;
+}

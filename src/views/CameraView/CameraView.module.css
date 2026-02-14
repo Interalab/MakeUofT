@@ -1,0 +1,72 @@
+.cameraContainer {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-color: #000;
+  overflow: hidden;
+}
+
+.videoLayer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* 确保视频填满屏幕 */
+  z-index: 1;
+}
+
+.canvasLayer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2; /* 在视频之上 */
+  pointer-events: none; /* 让点击事件穿透 Canvas 到达按钮层 */
+}
+
+.controlsLayer {
+  position: absolute;
+  bottom: 40px;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  z-index: 3;
+}
+
+.captureButton {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.3);
+  border: 3px solid #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.innerCircle {
+  width: 55px;
+  height: 55px;
+  background-color: #fff;
+  border-radius: 50%;
+  transition: transform 0.1s;
+}
+
+.captureButton:active .innerCircle {
+    transform: scale(0.9);
+}
+
+.scanningText {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    z-index: 4;
+    font-size: 1.2rem;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
